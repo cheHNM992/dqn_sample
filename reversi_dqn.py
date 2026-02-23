@@ -312,7 +312,7 @@ def self_play_train(args: argparse.Namespace) -> None:
 
 
 def print_board(board: np.ndarray) -> None:
-    symbols = {BLACK: "●", WHITE: "○", EMPTY: "."}
+    symbols = {BLACK: "○", WHITE: "●", EMPTY: "."}
     print("  " + " ".join(str(i) for i in range(BOARD_SIZE)))
     for r in range(BOARD_SIZE):
         row = " ".join(symbols[int(board[r, c])] for c in range(BOARD_SIZE))
@@ -331,7 +331,7 @@ def human_vs_cpu(args: argparse.Namespace) -> None:
         print_board(env.board)
         player = env.current_player
         legal = env.legal_moves(player)
-        turn_name = "BLACK" if player == BLACK else "WHITE"
+        turn_name = "BLACK(○)" if player == BLACK else "WHITE(●)"
 
         if not legal:
             print(f"{turn_name} は合法手がないためパス")
